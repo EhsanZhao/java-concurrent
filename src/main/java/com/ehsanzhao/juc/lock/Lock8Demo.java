@@ -17,9 +17,9 @@ import java.util.concurrent.TimeUnit;
  */
 class Phone{
 
-    public synchronized void sendEmail(){
+    public static synchronized void sendEmail(){
         try {
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(3);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -27,7 +27,7 @@ class Phone{
         System.out.println("---->sendEmail");
     }
 
-    public synchronized void sendSMS(){
+    public  synchronized void sendSMS(){
         System.out.println("---->sendSMS");
     }
 
@@ -42,7 +42,7 @@ public class Lock8Demo {
         Phone phone2 = new Phone();
 
         new Thread(()->{
-            phone.sendEmail();
+            Phone.sendEmail();
         },"a").start();
 
         new Thread(()->{
