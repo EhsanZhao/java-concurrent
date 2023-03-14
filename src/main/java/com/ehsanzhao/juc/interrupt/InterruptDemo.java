@@ -6,6 +6,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * 线程中断
  * 中断标识！！！
+ * 1.volatile
+ * 2.atomicBoolean
+ * 3.interrupt
  * @author zhaoyuan
  * @date 2023/3/14
  */
@@ -16,7 +19,7 @@ public class InterruptDemo {
     private static volatile AtomicBoolean isInterruptAtomic = new AtomicBoolean(false);
 
     public static void main(String[] args) {
-//        m1_volite();
+//        m1_volatile();
 //        m2_atomicboolean();
         m3_interrupt();
 
@@ -70,7 +73,7 @@ public class InterruptDemo {
         }).start();
     }
 
-    private static void m1_volite() {
+    private static void m1_volatile() {
         new Thread(()->{
             while(true){
                 if (isInterruptVolatile){
